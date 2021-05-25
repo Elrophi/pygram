@@ -1,0 +1,20 @@
+{% extends 'gram/base.html' %}
+{% block content %}
+    <strong> {{post.profile.username}} </strong>
+    <br>
+    <img src="{{post.image.url}}" width="400" height="400">
+    <p><em>{{ object.created }}</em> {{object.description}}</p>
+    <ul>
+        {% for comment in object.comment_set.all %}
+        <li>
+            <strong>{{ comment.profile }}</strong><br>
+            {{comment.text}}
+        </li>
+        {% endfor %}
+    </ul>
+    <form action="{% url 'detail' pk=object.id %}" method="POST">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <input type="submit" name="" id="" value="Comment" class="btn btn-success">
+    </form>
+{% endblock %}

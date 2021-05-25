@@ -1,0 +1,25 @@
+{% extends 'gram/base.html' %}
+{% load bootstrap5 %}
+{% block content %}
+<!-- <a href="{% url 'new' %}"><h1>Create new Post</h1></a> -->
+<br>
+<br>
+    {% for post in object_list %}
+    <strong> {{post.profile.username}} </strong>
+    <br>
+    <img src="{{post.image.url}}" width="400" height="400">
+    <form action="{% url 'like' post.pk%}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.path}}">
+        <button class="btn btn-outline-secondary"><i class="fas fa-thumbs-up"><span>{{ post.likes.all.count}}</span></i></button>
+    </form>
+    <form action="{% url 'dislike' post.pk%}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.path}}">
+        <button class="btn btn-outline-secondary"><i class="fas fa-thumbs-down"><span>{{ post.dislikes.all.count}}</span></i></button>
+    </form>
+    <p><em>{{ post.created }}</em><br>{{post.description}}</p>
+    <a href="{% url 'detail' post.pk %}" class="btn btn-success">Comment</a>
+    <hr>
+    {% endfor %}
+{% endblock %}

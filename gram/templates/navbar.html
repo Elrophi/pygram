@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
+  <div class="container-fluid">
+  <img class="thumbnail" src="{% static 'photo/instaicon.png' %}" style="height:50px;width:60px;">
+    <a class="navbar-brand text-danger" href="{% url 'list' %}">Instagram</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link active text-dark" aria-current="page" href="{% url 'list' %}">Home</a>
+        </li>         
+        <li class="nav-item">
+            <a href="" class="nav-link">News</a>
+        </li>
+        <li class="nav-item">
+            <a href="accounts/password_change/" class="nav-link">Change-Password</a>
+        </li>
+        <li class="nav-item">
+            <a href="logout/" class="nav-link">Logout</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'new' %}" class="nav-link">New-Post</a>
+        </li>
+        </ul>
+        {% else %}
+        <li class="nav-item">
+            <a class='nav-link text-dark' href="#">Welcome</a>
+        </li>
+        {% endif %}
+      </ul>
+      <form class="navbar-form d-flex" role="search" action="">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search Article" name="article">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit"><i class="fas fa-search text-dark"></i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
