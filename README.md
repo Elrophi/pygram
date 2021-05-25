@@ -48,3 +48,6 @@
     $ python3 -m install pillow
     $ python3 -m install psycopg2
     $ python3 -m install cloudinary
+
+### Email: Elrophi@gmail.com
+### Contact: 0700 000 000
