@@ -20,7 +20,5 @@
 
 >Python
 
->Flask
-
->NEWS_API(RESTFUL API)
+>Django
 ---
