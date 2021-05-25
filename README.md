@@ -15,3 +15,12 @@
 
 ---
 
+## Technology Used: 
+>Bootstrap
+
+>Python
+
+>Flask
+
+>NEWS_API(RESTFUL API)
+---
