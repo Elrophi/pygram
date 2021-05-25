@@ -56,4 +56,4 @@
 ---
 
 ## Copyright and License
-[MIT License](https://github.com/Elrophi/django-gallery/blob/master/LICENSE) 
+[MIT License](https://github.com/Elrophi/pygram/blob/master/LICENSE) 
